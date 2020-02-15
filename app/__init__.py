@@ -23,7 +23,7 @@ RECOGNITION = app.config["RECOGNITION"]
 SOUND = app.config["SOUND"]
 SSL = app.config["SSL"]
 SERIAL = app.config["SERIAL"]
-SERIAL_BAUD = app.config["BAUD"]
+BAUD = app.config["BAUD"]
 
 # Open serial Connection to "Lichtorgel"
 ser_u = serial.Serial(SERIAL, BAUD, timeout=5)

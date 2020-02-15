@@ -5,7 +5,7 @@ from app import db, socketio
 from flask_babel import gettext
 from .models import Cricket, Player, Round, Game, Podium, Throw, CricketControl, Score, PointsGained
 from .helper import check_if_ongoing_game, check_if_ongoing_round, check_other_players, set_podium, set_last_podium, \
-    get_playing_players_objects, get_active_player, get_playing_players_not_out_objects
+    get_playing_players_objects, get_active_player, get_playing_players_not_out_objects, do_light
 
 
 def get_cricket(player_id):
@@ -212,6 +212,8 @@ def score_cricket(hit, mod):
         if hit in range(0, 15):
             result = "-"
             audiofile = "beep"
+            do_light("070103030")
+#            do_light("07{z_hit}{z_mod}030")
         else:
             audiofile = "hit"
             # Cricket and score

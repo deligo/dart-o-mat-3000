@@ -14,6 +14,10 @@ from .models import Game, Player, Score, Cricket, Round, Throw, CricketControl, 
 # "Lichtorgel" definition
 def do_light(sequence):
    return ser_u.write(sequence.encode())
+   #Leading Zero
+   z_hit = "%02i" % int(hit)
+   z_mod = "%02i" % int(hit)
+   #z_fad = 030
 
 # Method definitions
 def clear_db():
