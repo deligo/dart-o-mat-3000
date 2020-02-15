@@ -7,6 +7,11 @@ from .models import Cricket, Player, Round, Game, Podium, Throw, CricketControl,
 from .helper import check_if_ongoing_game, check_if_ongoing_round, check_other_players, set_podium, set_last_podium, \
     get_playing_players_objects, get_active_player, get_playing_players_not_out_objects, do_light
 
+#Leading Zero
+#z_hit = "%02i" % int(hit)
+#z_mod = "%02i" % int(mod)
+#z_fad = 030
+
 
 def get_cricket(player_id):
     cricket = Cricket.query.filter_by(player_id=player_id).first()
@@ -213,7 +218,9 @@ def score_cricket(hit, mod):
             result = "-"
             audiofile = "beep"
             do_light("070103030")
-#            do_light("07{z_hit}{z_mod}030")
+#           do_light("07{z_hit}{z_mod}030")
+            teste_den_string = f"07{z_hit}{z_mod}030"
+            print(teste_den_string)
         else:
             audiofile = "hit"
             # Cricket and score
