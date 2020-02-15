@@ -1,7 +1,7 @@
 # General helper file
 
-# Import db from app
-from app import db
+# Import db, serial from app
+from app import db, ser_u
 # cycle and islice for nextPlayer
 from itertools import cycle, islice
 # Babel Translation
@@ -10,6 +10,10 @@ from flask_babel import gettext
 # Import module models
 from .models import Game, Player, Score, Cricket, Round, Throw, CricketControl, PointsGained, ATC, Podium, Split
 
+
+# "Lichtorgel" definition
+def do_light(sequence):
+   return ser_u.write(sequence.encode())
 
 # Method definitions
 def clear_db():
