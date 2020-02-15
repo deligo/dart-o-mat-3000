@@ -2,6 +2,8 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
 
+import serial
+
 # Import SQLAlchemy
 from flask_sqlalchemy import SQLAlchemy
 
@@ -20,6 +22,11 @@ PORT = app.config["PORT"]
 RECOGNITION = app.config["RECOGNITION"]
 SOUND = app.config["SOUND"]
 SSL = app.config["SSL"]
+SERIAL = app.config["SERIAL"]
+SERIAL_BAUD = app.config["BAUD"]
+
+# Open serial Connection to "Lichtorgel"
+ser_u = serial.Serial(SERIAL, BAUD, timeout=5)
 
 # Define SocketIO
 socketio = SocketIO(app)
