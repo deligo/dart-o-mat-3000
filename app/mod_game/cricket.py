@@ -7,10 +7,6 @@ from .models import Cricket, Player, Round, Game, Podium, Throw, CricketControl,
 from .helper import check_if_ongoing_game, check_if_ongoing_round, check_other_players, set_podium, set_last_podium, \
     get_playing_players_objects, get_active_player, get_playing_players_not_out_objects, do_light
 
-#Leading Zero
-#z_hit = "%02i" % int(hit)
-#z_mod = "%02i" % int(mod)
-#z_fad = 030
 
 
 def get_cricket(player_id):

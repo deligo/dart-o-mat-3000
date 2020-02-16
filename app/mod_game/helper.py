@@ -14,7 +14,7 @@ from .models import Game, Player, Score, Cricket, Round, Throw, CricketControl, 
 # "Lichtorgel" definition
 def do_light(sequence):
    return ser_u.write(sequence.encode())
-   
+
 
 # Method definitions
 def clear_db():
@@ -271,3 +271,9 @@ def update_throw_and_score(throw, hit, mod, add):
     db.session.commit()
 
     return "Done"
+
+#Leading Zero
+z_hit = "%02i" % int(hit)
+z_mod = "%02i" % int(mod)
+fad = 30
+z_fad = "%02i" % fad
