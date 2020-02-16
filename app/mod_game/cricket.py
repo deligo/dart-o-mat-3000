@@ -213,10 +213,13 @@ def score_cricket(hit, mod):
         if hit in range(0, 15):
             result = "-"
             audiofile = "beep"
-            do_light("070103030")
-            do_light("07" + str(last_throws[i].hit) + str(last_throws[i].mod) + "030")
+            #do_light("070103030")
+            z_hit = "%02i" % hit
+            outputString = "07" + str(z_hit) + "03030"
+            print (outputString)
+            do_light(outputString)
     #        teste_den_string = f"07{z_hit}{z_mod}{z_fad}"
-            print(teste_den_string)
+    #        print(teste_den_string)
         else:
             audiofile = "hit"
             # Cricket and score
