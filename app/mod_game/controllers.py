@@ -123,6 +123,41 @@ def manageuser():
         return render_template('/game/manageuser.html', created=created, deleted=deleted, players=players)
 
 
+@mod_game.route("/managesettings", methods=['GET', 'POST'])
+def managesettings():
+    # set Things
+    created = False
+    deleted = False
+    players = Player.query.all()
+    # If POST (coming from form)
+    if request.method == 'POST':
+        action = request.form["_action"]
+        # Get Action and either add or delete
+        if action == "add":
+            name = request.form["username"]
+            player = Player(name=name, active=False)
+            db.session.add(player)
+            db.session.commit()
+            created = True
+        # here comes delete
+        elif action == "del":
+            name = request.form["delusername"]
+            player = Player.query.filter_by(name=name).first()
+            db.session.delete(player)
+            db.session.commit()
+            deleted = True
+        # if no action was given
+        else:
+            created = False
+            deleted = False
+        # render with fresh player list
+        players = Player.query.all()
+        return render_template('/game/managesettings.html', created=created, deleted=deleted, name=name, players=players)
+    # This one will be taken if it is a GET request
+    else:
+        return render_template('/game/managesettings.html', created=created, deleted=deleted, players=players)
+
+
 @mod_game.route("/gameController")
 def game_controller():
     end_message = gettext(u"Really end game?")

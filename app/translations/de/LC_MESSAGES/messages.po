@@ -209,6 +209,14 @@ msgstr "Dir fehlt ein Spieler? Erstelle"
 msgid "one"
 msgstr "einen"
 
+#: templates/game/admin.html:86
+msgid "Need to change something? Change "
+msgstr "Du möchtest was verändern? Verändere "
+
+#: templates/game/admin.html:88
+msgid "it"
+msgstr "es"
+
 #: templates/game/admin.html:89
 msgid "Game Rules"
 msgstr "Spielregeln"
@@ -539,4 +547,3 @@ msgstr "Start"
 #: templates/game/scoreboardX01.html:35
 msgid "Out"
 msgstr "Ende"
-
