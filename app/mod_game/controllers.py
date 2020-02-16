@@ -200,10 +200,10 @@ def game_controller():
 
 @mod_game.route("/throw/<int:hit>/<int:mod>")
 def throw(hit, mod):
-    global z_hit
-    global z_mod
-    z_hit = "%02i" % hit
-    z_mod = "%02i" % mod
+#    global z_hit
+#    global z_mod
+#    z_hit = "%02i" % hit
+#    z_mod = "%02i" % mod
     game = Game.query.first()
     # Determine which sound to play
     audiofile = None
