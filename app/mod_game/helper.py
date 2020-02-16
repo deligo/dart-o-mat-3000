@@ -276,4 +276,4 @@ def update_throw_and_score(throw, hit, mod, add):
 z_hit = "%02i" % int(hit)
 z_mod = "%02i" % int(mod)
 fad = 30
-z_fad = "%02i" % fad
+z_fad = "%03i" % fad
