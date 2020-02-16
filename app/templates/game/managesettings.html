@@ -37,6 +37,9 @@
 	</form>
 	<hr>
 	<p>{% trans %}Go{% endtrans %} <a href="{{ url_for('game.admin') }}">{% trans %}back{% endtrans %}</a> {% trans %}to the game setup when done{% endtrans %}!</p>
+	<p><p>
+	<input type="hidden" name="_action" value="shutdown">
+	<button class="btn btn-outline-primary btn-lg" type="submit">{% trans %}System Shutdown{% endtrans %}</button>
 </div>
 <br>
 {% endblock %}

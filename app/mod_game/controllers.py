@@ -1,5 +1,8 @@
 # General imports
 import random
+import os
+import subprocess
+import shlex
 
 # Import the database and socketio object from the main app module
 from app import db, socketio, IPADDR, PORT, RECOGNITION, SOUND, SSL
@@ -146,6 +149,10 @@ def managesettings():
             db.session.delete(player)
             db.session.commit()
             deleted = True
+        elif action == "shutdown":
+            #os.system(“sudo shutdown -h now”)
+            cmd = shlex.split("sudo shutdown -h now")
+            subprocess.call(cmd)
         # if no action was given
         else:
             created = False
