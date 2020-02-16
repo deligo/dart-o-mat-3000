@@ -214,7 +214,7 @@ def score_cricket(hit, mod):
             result = "-"
             audiofile = "beep"
             do_light("070103030")
-            do_light("07" + str(z_hit) +str(z_mod) + "030")
+            do_light("07" + str(z_hit) + str(z_mod) + "030")
             teste_den_string = f"07{z_hit}{z_mod}{z_fad}"
             print(teste_den_string)
         else:

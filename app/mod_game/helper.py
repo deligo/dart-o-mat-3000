@@ -273,7 +273,7 @@ def update_throw_and_score(throw, hit, mod, add):
     return "Done"
 
 #Leading Zero
-z_hit = "%02i" % int(hit)
-z_mod = "%02i" % int(mod)
+#z_hit = "%02i" % throw(hit)
+#z_mod = "%02i" % throw(mod)
 fad = 30
 z_fad = "%03i" % fad
