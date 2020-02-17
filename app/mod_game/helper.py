@@ -10,11 +10,14 @@ from flask_babel import gettext
 # Import module models
 from .models import Game, Player, Score, Cricket, Round, Throw, CricketControl, PointsGained, ATC, Podium, Split
 
+global z_fad
 
 # "Lichtorgel" definition
 def do_light(sequence):
    return ser_u.write(sequence.encode())
 
+fad = 30
+z_fad = "%03i" % fad
 
 # Method definitions
 def clear_db():
@@ -275,5 +278,3 @@ def update_throw_and_score(throw, hit, mod, add):
 #Leading Zero
 #z_hit = "%02i" % throw(hit)
 #z_mod = "%02i" % throw(mod)
-fad = 30
-z_fad = "%03i" % fad

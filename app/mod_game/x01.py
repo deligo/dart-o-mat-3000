@@ -5,7 +5,7 @@ from app import db
 from flask_babel import gettext
 from .models import Score, Game, Player, Round, Podium, Throw
 from .helper import check_if_ongoing_game, check_if_ongoing_round, check_other_players, set_podium, set_last_podium, \
-    update_throw_and_score
+    update_throw_and_score, do_light, get_last_throws, z_fad
 
 # Dictionaries
 checkout_dict = {
@@ -211,6 +211,11 @@ def score_x01(hit, mod):
         active_player = Player.query.filter_by(active=True).first()
         # get Game object
         game = Game.query.first()
+        z_hit = "%02i" % hit
+        z_mod = "%02i" % mod
+        outputString = "06" + str(z_hit) + str(z_mod) + str(z_fad)
+        print (outputString)
+        do_light(outputString)
         # Check if there is a ongoing round associated, if not create a new one
         if not check_if_ongoing_round(active_player):
             rnd = Round(player_id=active_player.id, ongoing=True, throwcount=0)
