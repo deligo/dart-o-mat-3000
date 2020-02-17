@@ -14,7 +14,7 @@
 	<p>{% trans %}Change the Brightness of LED´s and maybe some others things (work in progress){% endtrans %}</p>
   <hr>
 	<form id="set_circles_brightness" action="{{ url_for('game.managesettings') }}" method="post">
-		<div class="form-group" id="div-brightness-circles">
+		<div class="form-group" id="brightness-circles">
 				<label for="brightness_circles">{% trans %}Set brightness of circles in percentage{% endtrans %}: </label>
 				<select class="form-control" id="brightness_circles" name="brightness_circles">
   					<option value="10">10</option>

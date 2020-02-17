@@ -8,6 +8,20 @@ class Base(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
 
+
+# Define settings
+class Settings(Base):
+    circles = db.Column(db.Integer, nullable=True)
+    strips = db.Column(db.Integer, nullable=True)
+    dontknowyet = db.Column(db.Integer, nullable=True)
+
+    player_id = db.Column(db.Integer, db.ForeignKey('player.id', onupdate="CASCADE", ondelete="CASCADE"),
+                          nullable=False)
+
+    def __repr__(self):
+        return str(self.id)
+
+
 # Define game related models
 class Game(Base):
     gametype = db.Column(db.String, nullable=False)
