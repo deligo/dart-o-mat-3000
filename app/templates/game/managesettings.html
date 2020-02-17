@@ -5,35 +5,52 @@
 
 {% block content %}
 <div class="container">
-	{% if created %}
+<!--	{% if created %}
 	<p>{% trans %}User {{ name }} was created successfully{% endtrans %}!</p>
 	{% elif deleted %}
 	<p>{% trans %}User {{ name }} was deleted successfully{% endtrans %}!</p>
-	{% endif %}
-	<h2>{% trans %}Create a new user{% endtrans %}</h2>
-	<p>{% trans %}You are missing a user to play? Go ahead and create one!{% endtrans %}</p>
-	<form id="createuser" action="{{ url_for('game.manageuser') }}" method="post">
-		<div id="username" class="form-group">
-			<label for="username">Name:</label>
-			<input type="text" class="form-control" id="username" name="username" required>
+	{% endif %} -->
+	<h2>{% trans %}Settings{% endtrans %}</h2>
+	<p>{% trans %}Change the Brightness of LED´s and maybe some others things (work in progress){% endtrans %}</p>
+  <hr>
+	<form id="set_circles_brightness" action="{{ url_for('game.managesettings') }}" method="post">
+		<div class="form-group" id="div-brightness-circles">
+				<label for="brightness_circles">{% trans %}Set brightness of circles in percentage{% endtrans %}: </label>
+				<select class="form-control" id="brightness_circles" name="brightness_circles">
+  					<option value="10">10</option>
+	  				<option value="20">20</option>
+						<option value="30">30</option>
+						<option value="40">40</option>
+						<option value="50">50</option>
+						<option value="60">60</option>
+						<option value="70">70</option>
+						<option value="80">80</option>
+						<option value="90">90</option>
+						<option value="100">100</option>
+				</select>
 		</div>
-		<input type="hidden" name="_action" value="add">
-
-		<button class="btn btn-outline-primary btn-lg" type="submit">{% trans %}Create User{% endtrans %}</button>
+		<input type="hidden" name="_action" value="set_circles_brightness">
+		<button class="btn btn-outline-primary btn-lg" type="submit">{% trans %}Set brightness{% endtrans %}</button>
 	</form>
 	<hr>
-	<h2>{% trans %}User list{% endtrans %}</h2>
-	<form id="deleteuser" action="{{ url_for('game.manageuser') }}" method="post">
-		<div id="delusername" class="form-group">
-			{% for player in players %}
-	   <label for="{{ player }}">
-	   <input class="form-control" value="{{ player }}" type="radio" id="delusername" name="delusername" required>
-	   {{ player }}
-	   </label><br>
-	   {% endfor %}
-		</div>
-		<input type="hidden" name="_action" value="del">
-		<button class="btn btn-outline-primary btn-lg" type="submit">{% trans %}Delete Selected User{% endtrans %}</button>
+	<form id="set_strips_brightness" action="{{ url_for('game.managesettings') }}" method="post">
+		<div class="form-group" id="div-brightness-strips" >
+			<label for="brightness_circles">{% trans %}Set brightness of strips in percentage{% endtrans %}: </label>
+			<select class="form-control" id="brightness_strips" name="brightness_strips">
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="40">40</option>
+					<option value="50">50</option>
+					<option value="60">60</option>
+					<option value="70">70</option>
+					<option value="80">80</option>
+					<option value="90">90</option>
+					<option value="100">100</option>
+			</select>
+			</div>
+			<input type="hidden" name="_action" value="set_strips_brightness">
+			<button class="btn btn-outline-primary btn-lg" type="submit">{% trans %}Set brightness{% endtrans %}</button>
 	</form>
 	<hr>
 	<p>{% trans %}Go{% endtrans %} <a href="{{ url_for('game.admin') }}">{% trans %}back{% endtrans %}</a> {% trans %}to the game setup when done{% endtrans %}!</p>

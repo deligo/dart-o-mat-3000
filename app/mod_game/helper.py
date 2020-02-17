@@ -199,8 +199,7 @@ def get_last_throws(player_id):
         if not last_throws == []:
             try:
                 for i in range(0, 3):
-                    throwlist.append(str(player_id) + "," + str(last_throws[i].id) + "," + str(last_throws[i].hit)
-                                     + "," + str(last_throws[i].mod))
+                    throwlist.append(str(player_id) + "," + str(last_throws[i].id) + "," + str(last_throws[i].hit) + "," + str(last_throws[i].mod))
             except:
                 print("Exception handled, lolz")
         else:

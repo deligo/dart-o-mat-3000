@@ -141,6 +141,7 @@ def managesettings():
             player = Player(name=name, active=False)
             db.session.add(player)
             db.session.commit()
+            print ("Neuer Spieler")
             created = True
         # here comes delete
         elif action == "del":
@@ -151,6 +152,7 @@ def managesettings():
             deleted = True
         elif action == "shutdown":
             #os.system(“sudo shutdown -h now”)
+            print ("Shutdown")
             cmd = shlex.split("sudo shutdown -h now")
             subprocess.call(cmd)
         # if no action was given
