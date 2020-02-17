@@ -7,6 +7,8 @@ from .models import Score, Game, Player, Round, Podium, Throw
 from .helper import check_if_ongoing_game, check_if_ongoing_round, check_other_players, set_podium, set_last_podium, \
     update_throw_and_score, do_light, get_last_throws, z_fad
 
+import time
+
 # Dictionaries
 checkout_dict = {
     "170": "T20 T20 Bull",
@@ -216,6 +218,7 @@ def score_x01(hit, mod):
         outputString = "06" + str(z_hit) + str(z_mod) + str(z_fad)
         print (outputString)
         do_light(outputString)
+        #time.sleep(1.5)
         # Check if there is a ongoing round associated, if not create a new one
         if not check_if_ongoing_round(active_player):
             rnd = Round(player_id=active_player.id, ongoing=True, throwcount=0)
@@ -240,6 +243,10 @@ def score_x01(hit, mod):
                 player_score.score = player_score.parkScore
                 db.session.commit()
                 return gettext(u"Bust! Remove Darts!")
+                #outputString = "520000" + str(z_fad)
+                #print("Bust")
+                #print (outputString)
+                #do_light(outputString)
             # check if won
             elif player_score.score - points == 0:
                 # TODO Here might be the best place to implement statistics function
@@ -255,6 +262,9 @@ def score_x01(hit, mod):
                             result = gettext(u"Next Winner")
                         else:
                             result = gettext(u"Winner!")
+                            #outputString = "510000" + str(z_fad)
+                            #print (outputString)
+                            #do_light(outputString)
                         # Do Podium Things
                         set_podium(active_player.id)
                         throwcount += 1
