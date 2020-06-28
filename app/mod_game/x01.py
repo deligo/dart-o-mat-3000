@@ -216,8 +216,11 @@ def score_x01(hit, mod):
         z_hit = "%02i" % hit
         z_mod = "%02i" % mod
         outputString = "06" + str(z_hit) + str(z_mod) + str(z_fad)
-        print (outputString)
-        do_light(outputString)
+        #print (z_hit)
+        #print (z_mod)
+        #print (z_fad)
+        #print (outputString)
+        do_light (outputString)
         #time.sleep(1.5)
         # Check if there is a ongoing round associated, if not create a new one
         if not check_if_ongoing_round(active_player):

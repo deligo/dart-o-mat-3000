@@ -11,7 +11,7 @@ BABEL_DEFAULT_LOCALE = "de"
 BABEL_DEFAULT_TIMEZONE = "UTC"
 
 #Serial Connection to "Lichtorgel Arduino"
-SERIAL = '/dev/ttyACM0'
+SERIAL = '//dev/ttyACM0'
 BAUD = 115200
 
 # Statement for enabling the development environment

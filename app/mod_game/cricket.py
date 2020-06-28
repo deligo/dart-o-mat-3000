@@ -4,8 +4,7 @@
 from app import db, socketio
 from flask_babel import gettext
 from .models import Cricket, Player, Round, Game, Podium, Throw, CricketControl, Score, PointsGained
-from .helper import check_if_ongoing_game, check_if_ongoing_round, check_other_players, set_podium, set_last_podium, \
-    get_playing_players_objects, get_active_player, get_playing_players_not_out_objects, do_light, get_last_throws, z_fad
+from .helper import check_if_ongoing_game, check_if_ongoing_round, check_other_players, set_podium, set_last_podium, get_playing_players_objects, get_active_player, get_playing_players_not_out_objects, do_light, get_last_throws, z_fad
 
 
 
@@ -213,13 +212,16 @@ def score_cricket(hit, mod):
         if hit in range(0, 15):
             result = "-"
             audiofile = "beep"
-            #do_light("070103030")
+            #do_light ("070103030")
             z_hit = "%02i" % hit
             outputString = "07" + str(z_hit) + "03" + str(z_fad)
-            print (outputString)
-            do_light(outputString)
-    #        teste_den_string = f"07{z_hit}{z_mod}{z_fad}"
-    #        print(teste_den_string)
+            #print (z_hit)
+            #print (z_mod)
+            #print (z_fad)
+            #print (outputString)
+            do_light (outputString)
+            #teste_den_string = f"07{z_hit}{z_mod}{z_fad}"
+            #print (teste_den_string)
         else:
             audiofile = "hit"
             # Cricket and score
@@ -231,7 +233,12 @@ def score_cricket(hit, mod):
                 hit_before_increase = cricket_dict[str(hit)]
                 # Now increase
                 cricket_dict[str(hit)] += mod
+                z_hit = "%02i" % hit
+                z_mod = "%02i" % mod
                 set_cricket_dict(active_player.id, cricket_dict)
+                outputString = "06" + str(z_hit) + str(z_mod) + str(z_fad)
+                do_light (outputString)
+
                 # 2. Now check if the number needs to be closed
                 if not check_to_close(hit):
                     # check opened

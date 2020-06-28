@@ -13,6 +13,9 @@ from .models import Game, Player, Score, Cricket, Round, Throw, CricketControl, 
 global z_fad
 
 # "Lichtorgel" definition
+import serial
+import time
+ser_u = serial.Serial('/dev/ttyACM0', 115200, timeout=5)
 def do_light(sequence):
    return ser_u.write(sequence.encode())
 
